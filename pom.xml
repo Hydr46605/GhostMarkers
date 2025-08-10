@@ -4,8 +4,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>it.hydr4</groupId>
-    <artifactId>ghostmarkers</artifactId>
-    <version>1.0.0</version>
+    <artifactId>GhostMarkers</artifactId>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>GhostMarkers</name>

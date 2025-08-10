@@ -1,5 +1,5 @@
 name: GhostMarkers
-version: 1.0.0
+version: 1.0.1
 main: it.hydr4.ghostmarkers.GhostMarkers
 api-version: '${api.version}'
 author: Jules
