@@ -21,9 +21,8 @@
 ## Installation
 
 1.  Download the latest version of GhostMarkers from the [releases page](https://github.com/your-repo/ghostmarkers/releases).
-2.  Make sure you have [PacketEvents](https://github.com/retrooper/packetevents) installed on your server. GhostMarkers requires it to function.
-3.  Place the downloaded `.jar` file into your server's `plugins` directory.
-4.  Restart or reload your server.
+2. Place the downloaded `.jar` file into your server's `plugins` directory.
+3.  Restart or reload your server.
 
 ## 📖 Commands
 
