@@ -1,0 +1,37 @@
+name: GhostMarkers
+version: 1.0.0
+main: it.hydr4.ghostmarkers.GhostMarkers
+api-version: '${api.version}'
+author: Jules
+description: Creates virtual markers on maps that can follow players or be at fixed locations.
+commands:
+  marker:
+    description: Main command for GhostMarkers.
+    usage: /marker <add|remove|list|info|edit|reload|admin>
+    aliases: [gm, ghostmarker]
+    permission: ghostmarkers.command
+permissions:
+  ghostmarkers.command:
+    description: Base permission for all GhostMarkers commands.
+    default: op
+  ghostmarkers.command.add:
+    description: Allows adding new markers.
+    default: op
+  ghostmarkers.command.remove:
+    description: Allows removing markers.
+    default: op
+  ghostmarkers.command.list:
+    description: Allows listing all markers.
+    default: op
+  ghostmarkers.command.info:
+    description: Allows viewing detailed info about a marker.
+    default: op
+  ghostmarkers.command.edit:
+    description: Allows editing markers.
+    default: op
+  ghostmarkers.command.reload:
+    description: Allows reloading the plugin configuration.
+    default: op
+  ghostmarkers.command.admin:
+    description: Allows access to admin commands like backup and restore.
+    default: op

@@ -1,0 +1,73 @@
+# ----------------------------------------------------------------------------------------------------
+# GhostMarkers Messages
+#
+# This file contains all the messages that are displayed to players.
+# You can customize these messages to your liking.
+#
+# You can use color codes with the '&' character.
+# For example: '&cThis is a red message.'
+#
+# Placeholders are available for some messages.
+# For example: %id% will be replaced with the marker ID.
+# ----------------------------------------------------------------------------------------------------
+
+prefix: "&8[&6GhostMarkers&8] &r"
+
+# General command messages
+usage: "&cUsage: /marker <add|remove|list|info|edit|reload>"
+invalid_subcommand: "&cInvalid subcommand. Type /marker for help."
+no_permission: "&cYou don't have permission to use this command."
+player_only: "&cThis command can only be run by a player."
+
+# Add command messages
+add_usage: "&cUsage: /marker add <id> <type> <player|x,y,z> [world] [visible_to...] [conditions...]"
+add_success: "&aMarker '%id%' added successfully."
+add_fail_exists: "&cMarker with ID '%id%' already exists."
+add_fail_invalid_type: "&cInvalid marker type: %type%. Use tab-complete to see valid types."
+add_fail_invalid_coords: "&cInvalid coordinates format. Use x,y,z."
+add_fail_invalid_number: "&cInvalid number in coordinates."
+add_fail_world_not_found: "&cWorld '%world%' not found."
+add_fail_console_no_world: "&cYou must specify a world when running from the console."
+add_fail_invalid_argument: "&cInvalid argument format: %arg%. Expected key:value."
+add_fail_unknown_argument: "&cUnknown argument key: %key%. Use 'visible' or 'conditions'."
+
+# Remove command messages
+remove_usage: "&cUsage: /marker remove <id>"
+remove_success: "&aMarker '%id%' removed successfully."
+remove_fail_not_found: "&cMarker with ID '%id%' not found."
+
+# List command messages
+list_header: "&6--- Ghost Markers ---"
+list_empty: "&eThere are no markers configured."
+list_item: "&e%id%: &f%target%"
+list_target_following: "Following %player%"
+list_target_location: "At %.1f, %.1f, %.1f in %world%"
+list_target_location_unloaded: "At %.1f, %.1f, %.1f in %world% (unloaded)"
+list_target_none: "No target"
+
+# Info command messages
+info_usage: "&cUsage: /marker info <id>"
+info_header: "&6--- Marker Info: %id% ---"
+info_line: "&e%key%: &f%value%"
+info_fail_not_found: "&cMarker with ID '%id%' not found."
+
+# Edit command messages
+edit_usage: "&cUsage: /marker edit <id> <property> <value>"
+edit_success: "&aProperty '%property%' for marker '%id%' updated successfully."
+edit_fail_not_found: "&cMarker with ID '%id%' not found."
+edit_fail_invalid_property: "&cInvalid property: %property%."
+valid_properties: "&eValid properties are: &f%properties%"
+
+# Reload command messages
+reload_success: "&aConfiguration and messages reloaded successfully."
+reload_fail: "&cFailed to reload configuration."
+
+# Admin command messages
+admin_usage: "&cUsage: /marker admin <backup|restore>"
+admin_invalid_subcommand: "&cInvalid admin subcommand. Use backup or restore."
+admin_backup_usage: "&cUsage: /marker admin backup <name>"
+admin_backup_success: "&aConfiguration backed up as '%name%'."
+admin_backup_fail: "&cFailed to create backup '%name%'."
+admin_restore_usage: "&cUsage: /marker admin restore <name>"
+admin_restore_success: "&aConfiguration restored from backup '%name%'. Reloading..."
+admin_restore_fail_not_found: "&cBackup '%name%' not found."

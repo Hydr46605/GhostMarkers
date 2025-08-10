@@ -1,0 +1,12 @@
+it/hydr4/ghostmarkers/MarkerManager$1.class
+it/hydr4/ghostmarkers/commands/MarkerTabCompleter.class
+it/hydr4/ghostmarkers/MarkerManager.class
+it/hydr4/ghostmarkers/ConfigManager.class
+it/hydr4/ghostmarkers/MarkerManager$2.class
+it/hydr4/ghostmarkers/MessageManager.class
+it/hydr4/ghostmarkers/api/GhostMarkersAPI.class
+it/hydr4/ghostmarkers/GhostMarkers.class
+it/hydr4/ghostmarkers/listeners/PlayerListener.class
+it/hydr4/ghostmarkers/commands/MarkerCommand.class
+it/hydr4/ghostmarkers/ConditionManager.class
+it/hydr4/ghostmarkers/Marker.class
