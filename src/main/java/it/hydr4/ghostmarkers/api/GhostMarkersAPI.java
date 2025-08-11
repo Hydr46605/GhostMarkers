@@ -23,7 +23,7 @@ public class GhostMarkersAPI {
     }
 
     public static void createMarker(String id, String type, String targetPlayer, Location targetLocation, int updateInterval, List<String> visibleTo, String world) {
-        Marker marker = new Marker(id, type, targetPlayer, targetLocation, updateInterval, visibleTo, world, null);
+        Marker marker = new Marker(id, type, targetPlayer, targetLocation, updateInterval, visibleTo, world, null, null);
         plugin.getConfigManager().addMarker(marker);
     }
 

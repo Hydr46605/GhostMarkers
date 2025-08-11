@@ -1,9 +1,10 @@
 name: GhostMarkers
-version: 1.0.1
+version: 1.1.0
 main: it.hydr4.ghostmarkers.GhostMarkers
 api-version: '${api.version}'
 author: Jules
 description: Creates virtual markers on maps that can follow players or be at fixed locations.
+softdepend: [PlaceholderAPI]
 commands:
   marker:
     description: Main command for GhostMarkers.

@@ -144,7 +144,7 @@ public class MarkerCommand implements CommandExecutor {
             }
         }
 
-        Marker marker = new Marker(id, typeStr, targetPlayer, targetLocation, 20, visibleTo, worldName, conditions);
+        Marker marker = new Marker(id, typeStr, targetPlayer, targetLocation, 20, visibleTo, worldName, conditions, null);
         plugin.getConfigManager().addMarker(marker);
         sender.sendMessage(messages.getPrefixed("add_success", "%id%", id));
         return true;

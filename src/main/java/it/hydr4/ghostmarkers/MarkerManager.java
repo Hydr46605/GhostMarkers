@@ -14,6 +14,8 @@ import org.bukkit.inventory.meta.MapMeta;
 import org.bukkit.map.MapView;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
+import me.clip.placeholderapi.PlaceholderAPI;
+import org.bukkit.OfflinePlayer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -165,7 +167,12 @@ public class MarkerManager {
                 iconType = MapDecorationTypes.RED_X;
             }
 
-            WrapperPlayServerMapData.MapDecoration decoration = new WrapperPlayServerMapData.MapDecoration(iconType, x, z, rotation, null);
+            String processedDisplayName = null;
+            if (marker.getDisplayName() != null) {
+                processedDisplayName = processPlaceholders(player, marker);
+            }
+
+            WrapperPlayServerMapData.MapDecoration decoration = new WrapperPlayServerMapData.MapDecoration(iconType, x, z, rotation, processedDisplayName != null ? Component.text(processedDisplayName) : null);
             decorations.add(decoration);
         }
 
@@ -179,5 +186,28 @@ public class MarkerManager {
         );
 
         PacketEvents.getAPI().getPlayerManager().sendPacket(player, mapPacket);
+    }
+
+    private String processPlaceholders(Player player, Marker marker) {
+        String text = marker.getDisplayName();
+
+        // Process PlaceholderAPI placeholders
+        if (plugin.getServer().getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            text = PlaceholderAPI.setPlaceholders((OfflinePlayer) player, text);
+        }
+
+        // Process internal placeholders
+        if (marker.getTargetPlayer() != null) {
+            text = text.replace("%ghostmarkers_target_player%", marker.getTargetPlayer());
+        }
+        if (marker.getTargetLocation() != null) {
+            text = text.replace("%ghostmarkers_target_x%", String.valueOf(marker.getTargetLocation().getBlockX()))
+                       .replace("%ghostmarkers_target_y%", String.valueOf(marker.getTargetLocation().getBlockY()))
+                       .replace("%ghostmarkers_target_z%", String.valueOf(marker.getTargetLocation().getBlockZ()));
+        }
+        text = text.replace("%ghostmarkers_marker_id%", marker.getId());
+        text = text.replace("%ghostmarkers_marker_type%", marker.getType());
+
+        return text;
     }
 }

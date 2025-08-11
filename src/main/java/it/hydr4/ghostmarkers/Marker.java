@@ -17,8 +17,9 @@ public class Marker {
     private List<String> visibleTo;
     private String world;
     private List<String> visibilityConditions;
+    private String displayName;
 
-    public Marker(String id, String type, String targetPlayer, Location targetLocation, int updateInterval, List<String> visibleTo, String world, List<String> visibilityConditions) {
+    public Marker(String id, String type, String targetPlayer, Location targetLocation, int updateInterval, List<String> visibleTo, String world, List<String> visibilityConditions, String displayName) {
         this.id = id;
         this.type = type;
         this.targetPlayer = targetPlayer;
@@ -99,5 +100,13 @@ public class Marker {
 
     public void setVisibilityConditions(List<String> visibilityConditions) {
         this.visibilityConditions = visibilityConditions;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 }

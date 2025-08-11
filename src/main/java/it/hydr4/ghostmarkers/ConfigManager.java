@@ -69,6 +69,7 @@ public class ConfigManager {
         List<String> visibleTo = markerSection.getStringList("visible_to");
         String worldName = markerSection.getString("world", "world");
         List<String> conditions = markerSection.getStringList("conditions");
+        String displayName = markerSection.getString("display_name", null);
 
         String targetPlayer = markerSection.getString("follow");
         Location targetLocation = null;
@@ -77,7 +78,7 @@ public class ConfigManager {
             targetLocation = parseLocation(markerSection.getConfigurationSection("follow_coords"), worldName, id);
         }
 
-        Marker marker = new Marker(id, type, targetPlayer, targetLocation, updateInterval, visibleTo, worldName, conditions);
+        Marker marker = new Marker(id, type, targetPlayer, targetLocation, updateInterval, visibleTo, worldName, conditions, displayName);
         markers.put(id, marker);
     }
 
@@ -113,6 +114,7 @@ public class ConfigManager {
                 markerSection.set("visible_to", marker.getVisibleTo());
                 markerSection.set("world", marker.getWorld());
                 markerSection.set("conditions", marker.getVisibilityConditions());
+                markerSection.set("display_name", marker.getDisplayName());
 
                 if (marker.getTargetPlayer() != null) {
                     markerSection.set("follow", marker.getTargetPlayer());
@@ -218,6 +220,9 @@ public class ConfigManager {
         switch (property.toLowerCase()) {
             case "type":
                 marker.setType(value.toUpperCase());
+                break;
+            case "display_name":
+                marker.setDisplayName(value);
                 break;
             case "update_interval":
                 try {
