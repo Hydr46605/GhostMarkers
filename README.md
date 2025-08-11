@@ -2,7 +2,7 @@
 
 # 👻 GhostMarkers 👻
 
-![GhostMarkers Banner](https://i.imgur.com/6iescTy.png)
+![GhostMarkers Banner](https://i.imgur.com/vvlkMEm.png)
 
 </div>
 
