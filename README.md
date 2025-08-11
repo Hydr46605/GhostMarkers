@@ -2,7 +2,7 @@
 
 # 👻 GhostMarkers 👻
 
-![GhostMarkers Banner](https://i.imgur.com/6iesqTy.png)
+![GhostMarkers Banner](https://i.imgur.com/6iescTy.png)
 
 </div>
 
@@ -14,7 +14,7 @@
 *   **Custom Marker Types:** Choose from any of the available `MapIcon.Type` values to customize the appearance of your markers.
 *   **Visibility Control:** Control who can see the markers. You can make them visible to everyone, or only to specific players.
 *   **Conditional Visibility:** Show or hide markers based on player conditions (e.g., sneaking, on fire).
-*   **Developer API:** An easy-to-use API to manage markers from your own plugins.
+
 *   **Easy to Use:** A simple and intuitive command system makes it easy to manage your markers.
 *   **Lightweight and Performant:** Designed to be as lightweight as possible to minimize any impact on your server's performance.
 
@@ -30,13 +30,13 @@ Here is a list of all the available commands for GhostMarkers:
 
 | Command                                                      | Description                               |
 | ------------------------------------------------------------ | ----------------------------------------- |
-| `/marker add <id> <type> <player_name\|x,y,z> [world] [visible_to...] [conditions: ...]` | Adds a new marker.                        |
+| `/marker add <id> <type> <player_name|x,y,z> [world] [visible_to...] [conditions: ...]` | Adds a new marker.                        |
 | `/marker remove <id>`                                        | Removes an existing marker.               |
 | `/marker list`                                               | Lists all the currently configured markers. |
 | `/marker info <id>`                                          | Displays detailed information about a specific marker. |
 | `/marker edit <id> <property> <value>`                       | Edits a property of an existing marker. |
 | `/marker reload`                                             | Reloads the plugin's configuration files. |
-| `/marker admin <backup\|restore> [name]`                     | Manages configuration backups. |
+| `/marker admin <backup|restore> [name]`                     | Manages configuration backups. |
 
 **Aliases:** `/gm`, `/ghostmarker`
 
@@ -92,3 +92,46 @@ If you encounter any bugs or have a feature request, please open an issue on the
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 💻 API Usage
+
+GhostMarkers provides a simple API for developers to interact with its features programmatically.
+
+### Getting the API
+
+You can obtain an instance of the API using:
+
+```java
+GhostMarkersAPI api = GhostMarkers.getAPI();
+```
+
+### Available Methods
+
+- `getMarker(String id)`: Retrieves a marker by its ID.
+- `getAllMarkers()`: Gets a list of all markers.
+- `createMarker(String id, String type, String targetPlayer, Location targetLocation, int updateInterval, List<String> visibleTo, String world)`: Creates a new marker.
+- `removeMarker(String id)`: Removes an existing marker.
+
+### Example
+
+```java
+import java.util.Arrays;
+import org.bukkit.Location;
+import it.hydr4.ghostmarkers.api.GhostMarkersAPI;
+import it.hydr4.ghostmarkers.Marker;
+
+// Get the API instance
+GhostMarkersAPI api = GhostMarkers.getAPI();
+
+// Create a new marker
+// Note: 'player' and 'world' would need to be defined in your context
+// For example, if in a PlayerJoinEvent, you could use event.getPlayer().getLocation()
+api.createMarker("MyNewMarker", "PLAYER", "somePlayer", new Location(Bukkit.getWorld("world"), 0, 64, 0), 20, Arrays.asList("all"), "world");
+
+// Get a marker
+Marker myMarker = api.getMarker("MyNewMarker");
+
+// Remove a marker
+api.removeMarker("MyNewMarker");
+```
+
